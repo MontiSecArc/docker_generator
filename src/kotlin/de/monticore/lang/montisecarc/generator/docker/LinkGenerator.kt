@@ -1,4 +1,4 @@
-package de.monticore.lang.montisecarc.generator.docker.generator
+package de.monticore.lang.montisecarc.generator.docker
 
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil

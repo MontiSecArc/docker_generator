@@ -4,7 +4,6 @@ import com.intellij.psi.PsiFile
 import de.monticore.lang.montisecarc.generator.FileGenerator
 import de.monticore.lang.montisecarc.generator.FreeMarker
 import de.monticore.lang.montisecarc.generator.docker.data.DockerService
-import de.monticore.lang.montisecarc.generator.docker.generator.ServiceGenerator
 import de.monticore.lang.montisecarc.psi.MSACompositeElementTypes
 import java.io.InputStream
 

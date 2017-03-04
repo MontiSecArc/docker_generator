@@ -1,17 +1,15 @@
-group 'de.monticore.lang.montisecarc.generator'
-version '1.0-SNAPSHOT'
-
 buildscript {
-    ext.kotlin_version = '1.0.6'
-    ext.msa_version = "0.8.9.SNAPSHOT"
 
     repositories {
+        jcenter()
         mavenCentral()
-        maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
         maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "gradle.plugin.org.jetbrains.intellij.plugins:gradle-intellij-plugin:0.2.5"
     }
 }
@@ -20,6 +18,10 @@ apply plugin: 'java'
 apply plugin: 'kotlin'
 apply plugin: 'idea'
 apply plugin: 'org.jetbrains.intellij'
+
+group 'de.monticore.lang.montisecarc.generator'
+version '1.0-SNAPSHOT'
+
 intellij {
     pluginName name
     version ideaVersion
@@ -28,9 +30,11 @@ intellij {
     updateSinceUntilBuild = false
 
     sandboxDirectory = "${rootProject.buildDir}/idea-sandbox"
+
+    plugins = ['de.monticore.lang.montisecarc.MontiSecArcLanguagePlugin:0.8.10.SNAPSHOT', 'com.neueda4j.intellij.plugin.cypher:2.4.1']
 }
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 sourceSets {
     main {
@@ -44,13 +48,12 @@ tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
-    compile project (':IntelliJ_MSA')
+    compileOnly project (':IntelliJ_MSA')
 }
-
-apply from: "artifactory.gradle"

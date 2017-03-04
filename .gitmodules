@@ -1,0 +1,3 @@
+[submodule "IntelliJ_MSA"]
+	path = IntelliJ_MSA
+	url = https://github.com/MontiSecArc/intellij_msa_language_plugin
