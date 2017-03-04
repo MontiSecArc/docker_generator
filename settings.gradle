@@ -1,0 +1,6 @@
+rootProject.name = 'DockerGenerator'
+
+include 'IntelliJ_MSA'
+project(":IntelliJ_MSA").projectDir = new File("IntelliJ_MSA/")
+include 'GraphDatabase'
+project(":GraphDatabase").projectDir = new File("IntelliJ_MSA/graphdatabase/")

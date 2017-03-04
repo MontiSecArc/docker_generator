@@ -25,7 +25,7 @@ import java.io.InputStream
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-class DockerGenerator() : FileGenerator() {
+class DockerGenerator : FileGenerator() {
 
     private val services = mutableSetOf<DockerService>()
 
@@ -76,7 +76,7 @@ class DockerGenerator() : FileGenerator() {
     }
 
     override fun aggregateResultFor(parsedFile: PsiFile): InputStream? {
-        // Noop
+
         val serviceOutput = services.filter { service ->
             !service.imageName.isNullOrBlank() || serviceLinks.filter { it.key == service.serviceName }.isNotEmpty()
         }.map { service ->
