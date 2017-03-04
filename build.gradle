@@ -31,7 +31,7 @@ intellij {
 
     sandboxDirectory = "${rootProject.buildDir}/idea-sandbox"
 
-    plugins = ['de.monticore.lang.montisecarc.MontiSecArcLanguagePlugin:0.8.10.SNAPSHOT', 'com.neueda4j.intellij.plugin.cypher:2.4.1']
+    plugins = ['de.monticore.lang.montisecarc.MontiSecArcLanguagePlugin:0.8.12', 'com.neueda4j.intellij.plugin.cypher:2.4.1']
 }
 
 sourceCompatibility = 1.8
@@ -41,6 +41,21 @@ sourceSets {
         java.srcDirs "gen", "src/java"
         kotlin.srcDirs "src/kotlin"
         resources.srcDir "resources"
+    }
+}
+
+project.afterEvaluate {
+
+    def prepareSandboxTask = project.tasks.findByName("prepareSandbox")
+    prepareSandboxTask.doLast {
+
+        def libFiles = new File("$prepareSandboxTask.destinationDir/${project.name}/lib/")
+        libFiles.listFiles().each {
+
+            if (it.name.contains("kotlin")) {
+                delete(it)
+            }
+        }
     }
 }
 
@@ -55,5 +70,5 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
-    compileOnly project (':IntelliJ_MSA')
+    compile project(':IntelliJ_MSA')
 }

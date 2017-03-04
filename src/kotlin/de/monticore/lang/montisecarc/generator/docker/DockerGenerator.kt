@@ -31,7 +31,7 @@ class DockerGenerator : FileGenerator() {
 
     override fun getSuffix(): String = ""
 
-    override fun getExtension(): String = ".docker"
+    override fun getExtension(): String = ".yml"
 
     override fun getDisplayName(): String = "Docker Generator"
 
