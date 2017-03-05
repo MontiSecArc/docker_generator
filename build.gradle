@@ -31,7 +31,7 @@ intellij {
 
     sandboxDirectory = "${rootProject.buildDir}/idea-sandbox"
 
-    plugins = ['de.monticore.lang.montisecarc.MontiSecArcLanguagePlugin:0.8.12', 'com.neueda4j.intellij.plugin.cypher:2.4.1']
+    plugins = ['de.monticore.lang.montisecarc.MontiSecArcLanguagePlugin:0.8.10.SNAPSHOT', 'com.neueda4j.intellij.plugin.cypher:2.4.1']
 }
 
 sourceCompatibility = 1.8
